@@ -33,12 +33,12 @@ def myTimeLineTweetsId():
 
 def searchWords():
     #url = "https://api.twitter.com/1.1/search/tweets.json"
-    url = "https://api.twitter.com/1.1/tweets/search/30day/MyPortfolio.json"
+    url = "https://api.twitter.com/1.1/tweets/search/fullarchive/MyPortfolio.json"
     print("何を調べますか?")
     keyword = input('>> ')
     print('----------------------------------------------------')
     params = {'query' : keyword, 'maxResults' : 10,'fromDate':'202002010000','toDate':'202002100000'}
-    params_p = {"query": keyword,"maxResults":"100","fromDate":"202004010000","toDate":"202004150000"} 
+    params_p = {"query": keyword,"maxResults":"100","fromDate":"201901010000","toDate":"201902010000"} 
     req = twitter.get(url, params = params_p)
     
     if req.status_code == 200:
@@ -60,5 +60,5 @@ if __name__ == '__main__':
     ATS = config.ACCESS_TOKEN_SECRET
     twitter = OAuth1Session(CK, CS, AT, ATS)
     searchWords()
-    myTimeLine()
+    #myTimeLine()
 
